@@ -1,4 +1,4 @@
-//Compilar como 'g++ IntegralGsl.cpp -lgsl -lgslcblas'
+//Compilar como 'g++ Debye.cpp -lgsl -lgslcblas'
 #include <fstream>
 #include <stdio.h>
 #include <math.h>
