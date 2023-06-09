@@ -20,6 +20,7 @@ int main(void)
   
 }
 
+//Permite imprimir los datos del experimento en un .txt
 void PrintE(double ExpT[], double ExpCV[])
 {
   std::ofstream fout;
@@ -31,16 +32,18 @@ void PrintE(double ExpT[], double ExpCV[])
   fout.close();
 }
 
+//Permite imprimir los datos simulados del modelo de Einstein en un .txt
 void PrintTheo (double N, double thetaE)
 {
-  const double kB=1.380649e-23;
-  const double NA=6.022e23;
+  const double kB=1.380649e-23; //Constante de Boltzmann
+  const double NA=6.022e23; //Número de Avogadro
   std::ofstream fout;
   fout.open ("DatosSimuladosE.txt");
   for (int t=70;t<=1000;t+=5)
   {
     double T=t*1.0;
-    fout <<T<<"\t"<<3*NA*kB*std::pow(thetaE/T,2)*std::exp(thetaE/T)/std::pow(std::exp(thetaE/T)-1,2)<<std::endl;
+    double CV=3*NA*kB*std::pow(thetaE/T,2)*std::exp(thetaE/T)/std::pow(std::exp(thetaE/T)-1,2);
+    fout <<T<<"\t"<<CV<<std::endl;
   }
   fout.close();
 }
