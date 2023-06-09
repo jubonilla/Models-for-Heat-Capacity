@@ -1,0 +1,21 @@
+set terminal pngcairo size 1100,600 enhanced font "Times New Roman,12"
+set output "Modelo-log.jpg"
+set origin 0,0
+set title font ",16"
+set xlabel font ",15"
+set ylabel font ",15"
+set key font ",14"
+set logscale
+set key box
+set key right bottom
+set grid linetype 2 lc "#C5C6D0" dashtype 2
+set title "Ajustes para la capacidad calorífica del diamante (log-log)"
+set xlabel "Temperatura [K]"
+set ylabel "C_{v} [J/(mol K)]"
+set label "q_{E}=1305.9 K" at graph 0.12,0.91 center font "Symbol,16"
+set label "q=1706.0 K" at graph 0.12,0.85 center font "Symbol,16"
+set yrange[0.0001:100]
+set xrange[10:1000]
+set samples 6000
+
+plot 'DatosExperimento.txt' u 1:2 w p pt 11 ps 1.5 lc rgb '#B22222' title 'Experimental', 'DatosSimuladosE.txt' u 1:2 w l lw 1.5 lc rgb '#0F00F0' title 'Einstein', 'DatossimuladosD.txt'  u 1:2 w l lw 1.7 lc '#DD571C' title 'Debye'  
